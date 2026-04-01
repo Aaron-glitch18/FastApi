@@ -40,7 +40,7 @@ def generate_frames():
 
 @app.get("/great")
 def great():
-    return {"message": "Great! The server is running."}
+    return {"message": "le serveur répond enfin."}
 
 
 @app.get("/video")

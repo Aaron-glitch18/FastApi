@@ -54,6 +54,11 @@ async def scan_upload(file: UploadFile = File(...)):
     return identify_plant(filepath, content)
 
 
+@app.get("/great")
+def great():
+    return "le serveur fonctionne correctement"
+
+
 # ── GET /scan/camera — capture depuis la camera OpenCV ───────────────────────
 @app.get("/scan/camera")
 def scan_camera():

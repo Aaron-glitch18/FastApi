@@ -37,8 +37,11 @@ def generate_frames():
         _, buffer = cv2.imencode('.jpg', frame)
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
-@.get('/great')
-print('hello worl')
+
+@app.get("/great")
+def great():
+    return {"message": "Great! The server is running."}
+
 
 @app.get("/video")
 def video():

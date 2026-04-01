@@ -16,11 +16,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-PLANTNET_API_KEY  = "votre clé plantnet"
+PLANTNET_API_KEY  = os.getenv("PLANTNET_API_KEY")
 PLANTNET_URL      = "https://my-api.plantnet.org/v2/identify/all"
-GROQ_API_KEY      = "votre clé groq"
+GROQ_API_KEY      = os.getenv("GROQ_API_KEY")
 GROQ_VISION_URL   = "https://api.groq.com/openai/v1/chat/completions"
-GEMINI_API_KEY    = "VOTRE_CLE_GEMINI_ICI"
+GEMINI_API_KEY    = os.getenv("GEMINI_API_KEY")
 GEMINI_IMAGE_URL  = "https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict"
 SCORE_MIN         = 20.0
 

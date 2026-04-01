@@ -19,7 +19,7 @@ app.add_middleware(
 
 PLANTNET_API_KEY = "2b10oJNny0uLqvvFEwmaPqGC4O"
 PLANTNET_URL     = "https://my-api.plantnet.org/v2/identify/all"
-GROQ_API_KEY     = "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"
+GROQ_API_KEY     = "votre clé groq"
 GROQ_VISION_URL  = "https://api.groq.com/openai/v1/chat/completions"
 SCORE_MIN        = 20.0
 

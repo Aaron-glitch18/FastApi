@@ -211,14 +211,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-PLANTNET_API_KEY  = "2b10oJNny0uLqvvFEwmaPqGC4O"
+PLANTNET_API_KEY  = os.getenv("PLANTNET_API_KEY")
 PLANTNET_ID_URL   = "https://my-api.plantnet.org/v2/identify/all"
 PLANTNET_DIS_URL  = "https://my-api.plantnet.org/v2/diseases/identify"
-GROQ_API_KEY      = "{MA_CLE}"
+GROQ_API_KEY      = os.getenv("GROQ_API_KEY")
 GROQ_VISION_URL   = "https://api.groq.com/openai/v1/chat/completions"
-
-# ── Seuils de confiance ───────────────────────────────────────────────────────
-# Identification plante : en dessous → Groq Vision prend le relais
 SCORE_MIN_PLANT   = 30.0   # relevé de 20 → 30 pour plus de précision
 # Maladie : en dessous de ce seuil le résultat est ignoré (trop incertain)
 SCORE_MIN_DISEASE = 25.0

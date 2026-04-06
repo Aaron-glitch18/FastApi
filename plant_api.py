@@ -220,24 +220,24 @@ SCORE_MIN_PLANT   = 30.0   # relevé de 20 → 30 pour plus de précision
 # Maladie : en dessous de ce seuil le résultat est ignoré (trop incertain)
 SCORE_MIN_DISEASE = 25.0
 
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 
 # ── Flux video MJPEG (caméra IP) ──────────────────────────────────────────────
-# def generate_frames():
-#     while True:
-#         success, frame = cap.read()
-#         if not success:
-#             cap.open(0)
-#             continue
-#         _, buffer = cv2.imencode('.jpg', frame)
-#         yield (b'--frame\r\n'
-#                b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
+def generate_frames():
+    while True:
+        success, frame = cap.read()
+        if not success:
+            cap.open(0)
+            continue
+        _, buffer = cv2.imencode('.jpg', frame)
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
 
-# @app.get("/video")
-# def video():
-#     return StreamingResponse(generate_frames(),
-#         media_type="multipart/x-mixed-replace; boundary=frame")
+@app.get("/video")
+def video():
+    return StreamingResponse(generate_frames(),
+        media_type="multipart/x-mixed-replace; boundary=frame")
 
 
 # ── Test connexion ─────────────────────────────────────────────────────────────

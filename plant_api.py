@@ -278,7 +278,7 @@ def scan_camera():
 
 @app.get("/historique")
 def get_historique():
-    url = "https://tonsite.byethost.com/api.php"
+    url = "https://practice.byethost22.com/add_diseases/api.php"
     
     response = requests.get(url)
     data = response.json()

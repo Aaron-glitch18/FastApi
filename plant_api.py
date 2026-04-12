@@ -276,7 +276,21 @@ def scan_camera():
     return pipeline(filepath, content)
 
 
-# ── Pipeline : identification plante + maladie ────────────────────────────────
+@app.get("/historique")
+def get_historique():
+    url = "https://tonsite.byethost.com/api.php"
+    
+    response = requests.get(url)
+    data = response.json()
+
+    # Exemple de traitement
+    for item in data:
+        item["resume"] = item["plante_nom"] + " - " + str(item["maladie_nom"])
+
+    return data
+
+
+        # ── Pipeline : identification plante + maladie ────────────────────────────────
 def pipeline(image_path: str, image_bytes: bytes) -> dict:
     plant_info   = identify_plant(image_path, image_bytes)
     disease_info = identify_disease(image_path, image_bytes)

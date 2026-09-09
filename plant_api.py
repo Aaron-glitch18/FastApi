@@ -417,7 +417,7 @@ def groq_vision_fallback(image_bytes: bytes, hint: str, hint_score: float) -> di
             GROQ_VISION_URL,
             headers={"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"},
             json={
-                "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+                "model": "openai/gpt-oss-120b",
                 "messages": [{"role": "user", "content": [
                     {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}},
                     {"type": "text", "text": prompt}
